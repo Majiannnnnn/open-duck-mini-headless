@@ -1,0 +1,225 @@
+{
+  "schema": "miniduck_mujoco_headless_75_heading",
+  "research_only": true,
+  "dt": 0.02,
+  "action_clip": 1.0,
+  "action_scale": 0.25,
+  "joint_order": [
+    "left_hip_yaw",
+    "left_hip_roll",
+    "left_hip_pitch",
+    "left_knee",
+    "left_ankle",
+    "right_hip_yaw",
+    "right_hip_roll",
+    "right_hip_pitch",
+    "right_knee",
+    "right_ankle"
+  ],
+  "default_joint_positions": [
+    0.0,
+    0.0,
+    -0.399379879236,
+    1.5,
+    -0.623843669891,
+    0.0,
+    0.0,
+    0.399379879236,
+    1.5,
+    -0.623843669891
+  ],
+  "joint_limits": [
+    [
+      -0.5235987755982979,
+      0.5235987755982997
+    ],
+    [
+      -0.4363323129985815,
+      0.43633231299858327
+    ],
+    [
+      -1.2217304763960306,
+      0.5235987755982988
+    ],
+    [
+      -1.5707963267948966,
+      1.5707963267948966
+    ],
+    [
+      -1.5707963267948957,
+      1.5707963267948974
+    ],
+    [
+      -0.523598775598297,
+      0.5235987755983006
+    ],
+    [
+      -0.4363323129985797,
+      0.43633231299858505
+    ],
+    [
+      -0.5235987755982988,
+      1.2217304763960306
+    ],
+    [
+      -1.5707963267948966,
+      1.5707963267948966
+    ],
+    [
+      -1.5707963267948957,
+      1.5707963267948974
+    ]
+  ],
+  "initial_qpos_wxyz": [
+    0.0,
+    0.0,
+    0.14027126133441925,
+    0.9745764136314392,
+    0.0,
+    0.22405536472797394,
+    0.0,
+    0.0,
+    0.0,
+    -0.3993798792362213,
+    1.5,
+    -0.6238436698913574,
+    0.0,
+    0.0,
+    0.3993798792362213,
+    1.5,
+    -0.6238436698913574
+  ],
+  "max_motor_velocity": 5.24,
+  "dof_vel_scale": 0.05,
+  "phase_order": [
+    "cos",
+    "sin"
+  ],
+  "phase_period_steps": 40,
+  "observation_layout": {
+    "gyro": [
+      0,
+      3
+    ],
+    "accelerometer": [
+      3,
+      6
+    ],
+    "command_xyz_yaw": [
+      6,
+      9
+    ],
+    "q_minus_default": [
+      9,
+      19
+    ],
+    "dq_scaled": [
+      19,
+      29
+    ],
+    "last_action": [
+      29,
+      39
+    ],
+    "last_last_action": [
+      39,
+      49
+    ],
+    "last_last_last_action": [
+      49,
+      59
+    ],
+    "last_motor_targets": [
+      59,
+      69
+    ],
+    "contacts_left_right": [
+      69,
+      71
+    ],
+    "phase": [
+      71,
+      73
+    ],
+    "relative_heading_sin_cos": [
+      73,
+      75
+    ]
+  },
+  "heading_reference": "Latch IMU heading when command axis/sign or stop/move mode changes; hold through speed changes",
+  "heading_features": "sin(yaw-reference), cos(yaw-reference); [0,1] for stop or commanded yaw",
+  "privileged_cross_track": "critic only; no world position input required by actor",
+  "runtime_compatibility": "Requires 75-input heading-aware runtime; not compatible with legacy 67/73-input deployment",
+  "accelerometer_semantics": "body specific force including gravity; no invented offset",
+  "history_semantics": "observation t includes actions t-1,t-2,t-3; post-limit last target",
+  "restore_from_legacy": false,
+  "training_variant": "classroom_directional_v4",
+  "hardware_accepted": false,
+  "command_ranges": {
+    "x": [
+      -0.08,
+      0.08
+    ],
+    "y": [
+      -0.1,
+      0.1
+    ],
+    "yaw": [
+      -0.45,
+      0.45
+    ]
+  },
+  "reward_variant": "directional_gait",
+  "training_conditions": "nominal_with_floor_friction",
+  "directional": {
+    "command_ranges": {
+      "x": [
+        0.03,
+        0.08
+      ],
+      "y": [
+        0.04,
+        0.1
+      ],
+      "yaw": [
+        0.2,
+        0.45
+      ]
+    },
+    "start_phases": [
+      0,
+      20
+    ],
+    "floor_friction_range": [
+      0.5,
+      1.1
+    ],
+    "switch_probability": 0.5,
+    "stop_probability": 0.2,
+    "warmup_steps": 50,
+    "swing_height_m": 0.024,
+    "reward_weights": {
+      "alive": 0.75,
+      "tracking_lin_vel": 4.0,
+      "weight_transfer": 2.0,
+      "swing_clearance": 3.5,
+      "stance_slip": -1.2,
+      "lateral_error": -1.0,
+      "heading_error": -0.5,
+      "action_rate": -0.35,
+      "action_acceleration": -0.8,
+      "torques": -0.001,
+      "roll_stability": -0.25,
+      "fall": -6.0,
+      "stand_still": -0.2
+    }
+  },
+  "checkpoint": "student_models/directional_v4/checkpoints/000524288000",
+  "onnx_sha256": "7048d243bd94a1d08bc2d99f0e40263e18af0ae405c94b0f640390b8b16a13d0",
+  "export_parity": {
+    "samples": 514,
+    "max_abs_error": 1.7285346984863281e-06
+  },
+  "diagnostic_only": true,
+  "heading_estimator": "gyro/gravity relative yaw for short supervised probe only"
+}

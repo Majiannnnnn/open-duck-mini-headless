@@ -1,0 +1,13 @@
+# Python virtual environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Run outputs and local operating system files
+/runs/*
+!/runs/.gitkeep
+.DS_Store
+Thumbs.db

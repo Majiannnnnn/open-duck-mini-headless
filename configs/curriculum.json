@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "command": {
+    "initial_scale": 0.7,
+    "ramp_steps": 25000
+  },
+  "roll": {
+    "initial_scale": 0,
+    "ramp_steps": 25000
+  },
+  "guidance": {
+    "weight": 0,
+    "fade_steps": [
+      15000,
+      50000
+    ]
+  },
+  "physics": {
+    "source": "sampled",
+    "initial_strength": 0.1,
+    "ramp_steps": 100000,
+    "ranges": {
+      "body_mass_scale": [
+        0.9,
+        1.1
+      ],
+      "body_com_offset_m": [
+        -0.003,
+        0.003
+      ],
+      "joint_friction_scale": [
+        0.9,
+        1.1
+      ],
+      "joint_damping_scale": [
+        0.9,
+        1.1
+      ],
+      "joint_armature_scale": [
+        1,
+        1.05
+      ],
+      "actuator_gain_scale": [
+        0.9,
+        1.1
+      ],
+      "joint_zero_offset_rad": [
+        -0.03,
+        0.03
+      ]
+    }
+  },
+  "sensors": {
+    "enabled": true,
+    "encoder_bias_rad": 0.018,
+    "gyro_bias_rad_s": 0.04,
+    "accelerometer_bias_m_s2": 0.25,
+    "imu_mount_radians": 0.05235987755982989,
+    "imu_delay_steps": [
+      0,
+      1,
+      2
+    ],
+    "action_delay_steps": [
+      0,
+      1,
+      2
+    ]
+  },
+  "push": {
+    "enabled": true,
+    "interval_s": [
+      5,
+      10
+    ],
+    "delta_velocity_m_s": [
+      0.05,
+      0.15
+    ]
+  }
+}

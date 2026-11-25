@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "baseline": "directional_v4",
+  "source": "rose5720-from-ta-dev_full.zip:configs/train_directional_v4.json",
+  "episode_length": 650,
+  "command": {
+    "order": [
+      "vx",
+      "vy",
+      "yaw_rate"
+    ],
+    "unit": [
+      "m/s",
+      "m/s",
+      "rad/s"
+    ],
+    "magnitude_range": [
+      [
+        0.03,
+        0.08
+      ],
+      [
+        0.04,
+        0.1
+      ],
+      [
+        0.2,
+        0.45
+      ]
+    ],
+    "warmup_steps": 50,
+    "start_phases": [
+      0,
+      20
+    ],
+    "switch_after_active_steps": [
+      150,
+      450
+    ],
+    "switch_probability": 0.5,
+    "stop_probability": 0.2
+  },
+  "reference": {
+    "path": "assets/reference/motion.npz",
+    "shape": [
+      180,
+      40,
+      40
+    ],
+    "phase_offset_when_active": 15,
+    "active_command_norm_gt": 0.01,
+    "field_slices": {
+      "joint_positions_legacy16": [
+        0,
+        16
+      ],
+      "joint_velocities_legacy16": [
+        16,
+        32
+      ],
+      "contacts_left_right": [
+        32,
+        34
+      ],
+      "base_linear_velocity": [
+        34,
+        37
+      ],
+      "base_angular_velocity": [
+        37,
+        40
+      ]
+    },
+    "contact_threshold_gt": 0.5
+  },
+  "reset": {
+    "xy_jitter_m": 0.05,
+    "yaw_jitter_rad": 3.14,
+    "sole_clearance_m": 0.0015,
+    "home_gravity_tilt_limit_deg": 45
+  },
+  "reward": {
+    "swing_height_m": 0.024,
+    "weights": {
+      "alive": 0.75,
+      "tracking_lin_vel": 4.0,
+      "weight_transfer": 2.0,
+      "swing_clearance": 3.5,
+      "stance_slip": -1.2,
+      "lateral_error": -1.0,
+      "heading_error": -0.5,
+      "action_rate": -0.35,
+      "action_acceleration": -0.8,
+      "torques": -0.001,
+      "roll_stability": -0.25,
+      "fall": -6.0,
+      "stand_still": -0.2
+    }
+  },
+  "randomization": {
+    "bank_path": "assets/randomization/geometry_bank.npz",
+    "floor_friction_range": [
+      0.5,
+      1.1
+    ],
+    "action_delay_steps": 0
+  }
+}

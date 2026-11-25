@@ -1,0 +1,3 @@
+# Preserve the exact bytes of the models and hashed policy metadata.
+assets/models/** -text
+fixtures/directional_v4/*.json -text

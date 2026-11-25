@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "source_release": "miniducktraining_classroom",
+  "source_archive": {
+    "name": "miniducktraining_classroom.tar.gz",
+    "sha256": "3a720747b7a25bea3884fcda99bbe95568353b457fb51e6bb7cba4d83c2c8389"
+  },
+  "upstream_training_commit": "b9be205ac64488c23504ca42e5ec790337adeec3",
+  "model_variant": "classroom headless flat-terrain snapshot",
+  "files": {
+    "assets/models/scene_flat_terrain_no_head.xml": {
+      "source": "training/models/scene_flat_terrain_no_head.xml",
+      "sha256": "1c204161129db0980fdeba82565ea3ad8411f2d805599bc87a43c3123a978579"
+    },
+    "assets/models/open_duck_mini_v2_no_head.xml": {
+      "source": "training/models/open_duck_mini_v2_no_head.xml",
+      "sha256": "db4c7aec4b852ea319222946bf9c81dda76bde922aa993f2539f7901e300ae8b"
+    },
+    "assets/models/assets/body_back.stl": {
+      "source": "training/models/assets/body_back.stl",
+      "sha256": "7166e8ccd5aa659566bf84c659a36c33248740a18d1eb04b0e34904dde71e733"
+    },
+    "assets/models/assets/body_front.stl": {
+      "source": "training/models/assets/body_front.stl",
+      "sha256": "5c98c85f91a979df57ecda622b64f35689efd2d076df0ca584186daf773cb47c"
+    },
+    "assets/models/assets/body_middle_bottom.stl": {
+      "source": "training/models/assets/body_middle_bottom.stl",
+      "sha256": "3f91cfeeffc197d39a5e11e26811825cbffdaedcc3eea0f4195d701f994eb203"
+    },
+    "assets/models/assets/body_middle_top.stl": {
+      "source": "training/models/assets/body_middle_top.stl",
+      "sha256": "0929c3d0c45b9b41273b1333655c467bec994f6489df5ea2c7c1298e4c4d7d39"
+    },
+    "assets/models/assets/foot_bottom_pla.stl": {
+      "source": "training/models/assets/foot_bottom_pla.stl",
+      "sha256": "4290199f08b3e8eb4ecd4f07c32c4d77ecf82839396ccd7d6062eea96cef8e6d"
+    },
+    "assets/models/assets/foot_bottom_tpu.stl": {
+      "source": "training/models/assets/foot_bottom_tpu.stl",
+      "sha256": "dfa3c58757e1d838b462d225c2dbfbb517e8fc57e3c6a9979c4894c801386e8a"
+    },
+    "assets/models/assets/foot_side.stl": {
+      "source": "training/models/assets/foot_side.stl",
+      "sha256": "3d564b42ef9c2bae340fd0b06cfadfe905c713ff84ad40b21d4181128d225138"
+    },
+    "assets/models/assets/foot_top.stl": {
+      "source": "training/models/assets/foot_top.stl",
+      "sha256": "0712dd6aec2e6d6c821b8bfcd0ba71bf7c8017f63889de5f6847e62814624a40"
+    },
+    "assets/models/assets/left_knee_to_ankle_left_sheet.stl": {
+      "source": "training/models/assets/left_knee_to_ankle_left_sheet.stl",
+      "sha256": "e69aff1a7baeedd18676348ea72d185229722f8b1348bb5b2ffcafc7de9715bf"
+    },
+    "assets/models/assets/left_knee_to_ankle_right_sheet.stl": {
+      "source": "training/models/assets/left_knee_to_ankle_right_sheet.stl",
+      "sha256": "2518ec33ff2b018304b80026603d3f88e8e41f27474b5f43f1f7e4b5e10c1461"
+    },
+    "assets/models/assets/left_roll_to_pitch.stl": {
+      "source": "training/models/assets/left_roll_to_pitch.stl",
+      "sha256": "1af14b0e3bef3298d20f3d5b985848aaf9dc69097c8b449c43fc63181ee01d66"
+    },
+    "assets/models/assets/leg_spacer.stl": {
+      "source": "training/models/assets/leg_spacer.stl",
+      "sha256": "4f23745dac3598daf9bf6089e3864a318d091a5613af8544aecf3e68d6a6772e"
+    },
+    "assets/models/assets/right_roll_to_pitch.stl": {
+      "source": "training/models/assets/right_roll_to_pitch.stl",
+      "sha256": "22d3e6f5e0afd386bc0bf288077ae99f3822f82ea4c1e6e47bd36fdcc21d1599"
+    },
+    "assets/models/assets/roll_motor_bottom.stl": {
+      "source": "training/models/assets/roll_motor_bottom.stl",
+      "sha256": "3dc60095901ac2332cfb798dcd53149c2e98abeb636637f6bd7e8b9757fa9ecf"
+    },
+    "assets/models/assets/roll_motor_top.stl": {
+      "source": "training/models/assets/roll_motor_top.stl",
+      "sha256": "89872314b73e926dc1a37dc4d0d4756bf74e82316a8f207cb160924ec0372e62"
+    },
+    "assets/models/assets/trunk_bottom.stl": {
+      "source": "training/models/assets/trunk_bottom.stl",
+      "sha256": "d2382a154ccb241911225a560cf49985d363d476699a9198eb4ad9d5bfbb5e36"
+    },
+    "assets/models/assets/trunk_top.stl": {
+      "source": "training/models/assets/trunk_top.stl",
+      "sha256": "943a7c75a81ede71fc985ecc37ccd8efec05b9be604302e04af8c9fa3a516c16"
+    },
+    "assets/reference/motion.npz": {
+      "source": "data/reference/motion.npz",
+      "sha256": "f3b01b81bfe2214a432af59132b6c7d72bf577cb41e57dc4af5eae89156f5065"
+    },
+    "assets/randomization/geometry_bank.npz": {
+      "source": "data/geometry_bank.npz",
+      "sha256": "dba808a47bbaa4359707352d3e07fb68331e5e553c98fadcc03fd31b78d595ec"
+    }
+  }
+}

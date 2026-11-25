@@ -1,0 +1,19 @@
+{
+  "archive": "rose5720-from-ta-dev_full.zip",
+  "archive_sha256": "0699b52472ed9adf97b3c7c531b8d9262e733674b932e366bcf3d87dfa622d63",
+  "stem": "directional_v4_000524288000",
+  "files": {
+    "directional_v4_000524288000.onnx": {
+      "member": "rose5720-from-ta-dev_full/student_models/directional_v4/directional_v4_000524288000.onnx",
+      "sha256": "7048d243bd94a1d08bc2d99f0e40263e18af0ae405c94b0f640390b8b16a13d0"
+    },
+    "directional_v4_000524288000.npz": {
+      "member": "rose5720-from-ta-dev_full/student_models/directional_v4/directional_v4_000524288000.npz",
+      "sha256": "463f5b7e451f09c2b99cdbc1964a838ed5e5b1f5e6dc74386ca30250a6ccd803"
+    },
+    "directional_v4_000524288000.json": {
+      "member": "rose5720-from-ta-dev_full/student_models/directional_v4/directional_v4_000524288000.json",
+      "sha256": "3ced866dcea43607037e75bc8c09931d23ea69a46d3073deb7be645b144feba4"
+    }
+  }
+}

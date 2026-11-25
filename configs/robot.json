@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "model": "assets/models/scene_flat_terrain_no_head.xml",
+  "floating_joint": "floating_base",
+  "home_keyframe": "home",
+  "joint_order": [
+    "left_hip_yaw",
+    "left_hip_roll",
+    "left_hip_pitch",
+    "left_knee",
+    "left_ankle",
+    "right_hip_yaw",
+    "right_hip_roll",
+    "right_hip_pitch",
+    "right_knee",
+    "right_ankle"
+  ],
+  "default_joint_positions_rad": [
+    0.0,
+    0.0,
+    -0.399379879236,
+    1.5,
+    -0.623843669891,
+    0.0,
+    0.0,
+    0.399379879236,
+    1.5,
+    -0.623843669891
+  ],
+  "joint_limits_rad": [
+    [
+      -0.5235987755982979,
+      0.5235987755982997
+    ],
+    [
+      -0.4363323129985815,
+      0.43633231299858327
+    ],
+    [
+      -1.2217304763960306,
+      0.5235987755982988
+    ],
+    [
+      -1.5707963267948966,
+      1.5707963267948966
+    ],
+    [
+      -1.5707963267948957,
+      1.5707963267948974
+    ],
+    [
+      -0.523598775598297,
+      0.5235987755983006
+    ],
+    [
+      -0.4363323129985797,
+      0.43633231299858505
+    ],
+    [
+      -0.5235987755982988,
+      1.2217304763960306
+    ],
+    [
+      -1.5707963267948966,
+      1.5707963267948966
+    ],
+    [
+      -1.5707963267948957,
+      1.5707963267948974
+    ]
+  ],
+  "initial_qpos_wxyz": [
+    0.0,
+    0.0,
+    0.14027126133441925,
+    0.9745764136314392,
+    0.0,
+    0.22405536472797394,
+    0.0,
+    0.0,
+    0.0,
+    -0.3993798792362213,
+    1.5,
+    -0.6238436698913574,
+    0.0,
+    0.0,
+    0.3993798792362213,
+    1.5,
+    -0.6238436698913574
+  ],
+  "clock": {
+    "control_dt_s": 0.02,
+    "physics_dt_s": 0.002,
+    "substeps": 10,
+    "phase_period_steps": 40,
+    "phase_period_s": 0.8
+  },
+  "policy": {
+    "source_schema": "miniduck_mujoco_headless_75_heading",
+    "sizes": {
+      "actor": 75,
+      "critic": 175,
+      "action": 10
+    },
+    "actor_key": "state",
+    "critic_key": "privileged_state",
+    "actor_fields": [
+      {
+        "name": "gyro",
+        "start": 0,
+        "stop": 3,
+        "unit": "rad/s",
+        "meaning": "Body-frame angular velocity from the actor IMU."
+      },
+      {
+        "name": "accelerometer",
+        "start": 3,
+        "stop": 6,
+        "unit": "m/s²",
+        "meaning": "Body-frame specific force including gravity."
+      },
+      {
+        "name": "command_xyz_yaw",
+        "start": 6,
+        "stop": 9,
+        "unit": "m/s, m/s, rad/s",
+        "meaning": "Requested local vx, vy and yaw rate."
+      },
+      {
+        "name": "q_minus_default",
+        "start": 9,
+        "stop": 19,
+        "unit": "rad",
+        "meaning": "Measured joint angle minus home angle, in joint_order."
+      },
+      {
+        "name": "dq_scaled",
+        "start": 19,
+        "stop": 29,
+        "unit": "scaled rad/s",
+        "meaning": "Measured joint angular velocity multiplied by joint_velocity_scale."
+      },
+      {
+        "name": "last_action",
+        "start": 29,
+        "stop": 39,
+        "unit": "1",
+        "meaning": "Committed normalized policy action at t-1."
+      },
+      {
+        "name": "last_last_action",
+        "start": 39,
+        "stop": 49,
+        "unit": "1",
+        "meaning": "Committed normalized policy action at t-2."
+      },
+      {
+        "name": "last_last_last_action",
+        "start": 49,
+        "stop": 59,
+        "unit": "1",
+        "meaning": "Committed normalized policy action at t-3."
+      },
+      {
+        "name": "last_motor_targets",
+        "start": 59,
+        "stop": 69,
+        "unit": "rad",
+        "meaning": "Previous joint targets after rate and position limits, before actuator delay."
+      },
+      {
+        "name": "contacts_left_right",
+        "start": 69,
+        "stop": 71,
+        "unit": "0/1",
+        "meaning": "Measured left and right foot contacts."
+      },
+      {
+        "name": "phase",
+        "start": 71,
+        "stop": 73,
+        "unit": "1",
+        "meaning": "Cosine, sine of the actor gait phase."
+      },
+      {
+        "name": "relative_heading_sin_cos",
+        "start": 73,
+        "stop": 75,
+        "unit": "1",
+        "meaning": "Sine and cosine of yaw minus latched heading. Equals [0, 1] while idle or on yaw commands."
+      }
+    ],
+    "critic_extra_fields": [
+      {
+        "name": "clean_gyro",
+        "start": 75,
+        "stop": 78,
+        "unit": "rad/s",
+        "meaning": "Clean body-frame gyro."
+      },
+      {
+        "name": "clean_accelerometer",
+        "start": 78,
+        "stop": 81,
+        "unit": "m/s²",
+        "meaning": "Clean body-frame specific force."
+      },
+      {
+        "name": "gravity_body",
+        "start": 81,
+        "stop": 84,
+        "unit": "1",
+        "meaning": "Gravity direction in the body frame."
+      },
+      {
+        "name": "local_linear_velocity",
+        "start": 84,
+        "stop": 87,
+        "unit": "m/s",
+        "meaning": "Local body linear velocity."
+      },
+      {
+        "name": "global_angular_velocity",
+        "start": 87,
+        "stop": 90,
+        "unit": "rad/s",
+        "meaning": "World-frame angular velocity."
+      },
+      {
+        "name": "clean_q_minus_default",
+        "start": 90,
+        "stop": 100,
+        "unit": "rad",
+        "meaning": "Clean joint angle minus home angle, in joint_order."
+      },
+      {
+        "name": "clean_dq",
+        "start": 100,
+        "stop": 110,
+        "unit": "rad/s",
+        "meaning": "Unscaled joint angular velocity, in joint_order."
+      },
+      {
+        "name": "root_height",
+        "start": 110,
+        "stop": 111,
+        "unit": "m",
+        "meaning": "Floating base height."
+      },
+      {
+        "name": "actuator_force",
+        "start": 111,
+        "stop": 121,
+        "unit": "N·m",
+        "meaning": "Actuator forces in joint_order."
+      },
+      {
+        "name": "contacts",
+        "start": 121,
+        "stop": 123,
+        "unit": "0/1",
+        "meaning": "Actual left and right foot contacts."
+      },
+      {
+        "name": "foot_velocities_world",
+        "start": 123,
+        "stop": 129,
+        "unit": "m/s",
+        "meaning": "Two world-frame XYZ velocities, left foot then right."
+      },
+      {
+        "name": "foot_air_times",
+        "start": 129,
+        "stop": 131,
+        "unit": "s",
+        "meaning": "Left and right foot time since liftoff."
+      },
+      {
+        "name": "reference_frame",
+        "start": 131,
+        "stop": 171,
+        "unit": "mixed",
+        "meaning": "Current legacy 40-channel reference frame."
+      },
+      {
+        "name": "phase_index",
+        "start": 171,
+        "stop": 172,
+        "unit": "control ticks",
+        "meaning": "Unshifted actor phase index."
+      },
+      {
+        "name": "imitation_phase",
+        "start": 172,
+        "stop": 174,
+        "unit": "1",
+        "meaning": "Cosine, sine of the unshifted actor phase."
+      },
+      {
+        "name": "cross_track",
+        "start": 174,
+        "stop": 175,
+        "unit": "m",
+        "meaning": "Signed lateral world displacement from the latched path."
+      }
+    ],
+    "observations": {
+      "joint_velocity_scale": 0.05,
+      "phase_order": [
+        "cos",
+        "sin"
+      ],
+      "heading_order": [
+        "sin",
+        "cos"
+      ],
+      "heading_reference": "Latch IMU heading when command axis/sign or stop/move mode changes; hold through speed changes",
+      "training_phase": "Active steps advance the phase. Start from the sampled phase on motion onset, keep phase through direction changes, and set it to zero while idle.",
+      "runtime_phase": "Advance on committed active sends. Reset phase on motion start or stop and hold phase at zero while idle.",
+      "normalization": {
+        "method": "running_mean_std",
+        "when": "PPO updates observation statistics. ONNX export embeds actor statistics.",
+        "runtime_pre_normalize": false
+      },
+      "active_command_threshold": 0.01
+    },
+    "action": {
+      "unit": "1",
+      "clip": [
+        -1.0,
+        1.0
+      ],
+      "scale_rad": 0.25,
+      "target_rate_rad_s": 5.24,
+      "target_order": [
+        "clip_action",
+        "scale_and_add_home",
+        "rate_limit_from_previous_target",
+        "clip_joint_limits"
+      ]
+    }
+  }
+}
